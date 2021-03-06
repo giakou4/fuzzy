@@ -1,0 +1,73 @@
+[System]
+Name='fis_model_improved'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=27
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='dV'
+Range=[0 1]
+NumMFs=3
+MF1='S':'trimf',[0.1 0.5 0.9]
+MF2='M':'trimf',[-0.4 0 0.4]
+MF3='L':'trimf',[0.6 1 1.6]
+
+[Input2]
+Name='dH'
+Range=[0 1]
+NumMFs=3
+MF1='S':'trimf',[-0.4 0 0.4]
+MF2='M':'trimf',[0.1 0.5 0.9]
+MF3='L':'trimf',[0.6 1 1.6]
+
+[Input3]
+Name='theta'
+Range=[-180 180]
+NumMFs=3
+MF1='N':'trimf',[-180 -180 0]
+MF2='ZE':'trimf',[-130 0 130]
+MF3='P':'trimf',[0 180 180]
+
+[Output1]
+Name='Dtheta'
+Range=[-150 150]
+NumMFs=3
+MF1='N':'trapmf',[-225 -118 -103 0]
+MF2='ZE':'trimf',[-100 0 100]
+MF3='P':'trapmf',[0 100 130 150]
+
+[Rules]
+1 1 1, 3 (1) : 1
+1 1 2, 3 (1) : 1
+1 1 3, 3 (1) : 1
+2 1 1, 3 (1) : 1
+2 1 2, 3 (1) : 1
+2 1 3, 1 (1) : 1
+3 1 1, 3 (1) : 1
+3 1 2, 3 (1) : 1
+3 1 3, 1 (1) : 1
+1 2 1, 3 (1) : 1
+1 2 2, 3 (1) : 1
+1 2 3, 1 (1) : 1
+2 2 1, 3 (1) : 1
+2 2 2, 2 (1) : 1
+2 2 3, 1 (1) : 1
+3 2 1, 3 (1) : 1
+3 2 2, 2 (1) : 1
+3 2 3, 1 (1) : 1
+1 3 1, 3 (1) : 1
+1 3 2, 3 (1) : 1
+1 3 3, 1 (1) : 1
+2 3 1, 3 (1) : 1
+2 3 2, 2 (1) : 1
+2 3 3, 1 (1) : 1
+3 3 1, 3 (1) : 1
+3 3 2, 2 (1) : 1
+3 3 3, 1 (1) : 1
