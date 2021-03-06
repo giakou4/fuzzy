@@ -1,4 +1,4 @@
-# Section I 
+# PART I 
 
 ## SECTION 1
 
